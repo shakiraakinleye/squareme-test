@@ -1,7 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
+import userReducer from "./user"
 
 export const RootState = configureStore({
   reducer: {
+    user: userReducer,
   },
 })
 
