@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Providers from "../providers";
+import Header from "@/components/organisms/header";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -28,12 +29,16 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${playfair.variable} antialiased min-h-screen w-full max-w-full bg-white selection:bg-zinc-200 transition-colors duration-700 ease-in`}
+        className={`${inter.variable} ${playfair.variable} antialiased min-h-screen w-full max-w-full bg-background-200 selection:bg-zinc-200 transition-colors duration-700 ease-in`}
       >
-        <Providers>{children}</Providers>
+        <Providers>
+          <Header />
+          <main>{children}</main>
+        </Providers>
+        {/*
+        main here - containing the side nav and rest of the page depending on href
+        both meed to have max-w-screen-2xl or [1440px] */}
       </body>
     </html>
   );
 }
-
-// todo: fix bg and slection colors
