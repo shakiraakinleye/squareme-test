@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
-import "./globals.css";
-import Providers from "../providers";
-import Header from "@/components/organisms/header";
+import Providers from "../../providers";
+import {
+  DesktopSideNav,
+  DesktopNavBar,
+} from "@/components/organisms/desktop-navs";
+import "../globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -18,7 +21,7 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: "SquareMe",
-  description: "Social payment platform made simple!",
+  description: "Dashboard - Social payment platform made simple!",
 };
 
 export default function RootLayout({
@@ -32,12 +35,14 @@ export default function RootLayout({
         className={`${inter.variable} ${playfair.variable} antialiased min-h-screen w-full max-w-full bg-background-200 selection:bg-zinc-200 transition-colors duration-700 ease-in`}
       >
         <Providers>
-          <Header />
-          <main>{children}</main>
+          <DesktopNavBar />
+          <main className="flex w-full h-full">
+            <DesktopSideNav />
+            <div className="border border-red-700 w-full h-full">
+              {children}
+            </div>
+          </main>
         </Providers>
-        {/*
-        main here - containing the side nav and rest of the page depending on href
-        both meed to have max-w-screen-2xl or [1440px] */}
       </body>
     </html>
   );

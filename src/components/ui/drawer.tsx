@@ -1,6 +1,7 @@
 import { Drawer as ChakraDrawer, Portal } from "@chakra-ui/react"
 import { CloseButton } from "./close-button"
 import * as React from "react"
+import { MoveLeft } from "lucide-react"
 
 interface DrawerContentProps extends ChakraDrawer.ContentProps {
   portalled?: boolean
@@ -32,11 +33,15 @@ export const DrawerCloseTrigger = React.forwardRef<
     <ChakraDrawer.CloseTrigger
       position="absolute"
       top="2"
-      insetEnd="2"
+      insetStart="4"
+      insetEnd="auto"
       {...props}
       asChild
     >
-      <CloseButton size="sm" ref={ref} />
+      {/* <CloseButton size="sm" ref={ref} /> */}
+      <CloseButton size="sm" ref={ref}>
+        <MoveLeft className="stroke-inherit w-6 h-6" />
+      </CloseButton>
     </ChakraDrawer.CloseTrigger>
   )
 })

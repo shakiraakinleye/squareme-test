@@ -9,24 +9,23 @@
 
   /* foreground */
   --foreground-100: #171717;
-  --foreground-200: #23262F;
+  --foreground-200: #23262f;
 
   /* border */
   --border-100: #e6eaee;
 
   /* avatar */
-  --avatar-100: #0CBC8B;
+  --avatar-100: #0cbc8b;
 
   /* muted */
   --muted-100: #606060;
 
   /* grey */
-  --grey-100: #04004D;
+  --grey-100: #04004d;
 
   /* accent */
-  --accent-100: #3976E8;
+  --accent-100: #3976e8;
 }
-
 
 /* @media (prefers-color-scheme: dark) {
   :root {
