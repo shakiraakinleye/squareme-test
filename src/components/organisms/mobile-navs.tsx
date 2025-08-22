@@ -37,8 +37,6 @@ const SideNavDrawer = ({ open, openHandler }: SideNavDrawerProps) => {
   );
 };
 
-// Add header here for back button
-
 export const MobileSideNav = () => {
   const [open, setOpen] = useState(false);
   const sideNavDrawerHandler = () => {
