@@ -12,22 +12,30 @@ const NavButtons = () => {
   const user = useSelector((state: RootState) => state.user.value);
 
   return (
-    <div className="w-fit flex items-center gap-x-2 md:gap-x-4">
+    <div
+      className="w-fit flex items-center gap-x-2 md:gap-x-4"
+      aria-label="navigation buttons"
+      role="list"
+    >
       <IconButton
         icon={Bell}
         iconClassName="stroke-foreground-200"
         tooltip="Notifictaion"
-        aria-label="Notifications Button"
+        role="button"
+        aria-label="notifications button"
       />
       {user && (
         <Button
           className="flex items-center gap-x-2 pointer-events-none min-w-fit min-h-fit"
-          aria-label="Account Settings"
+          aria-label="open account settings"
+          role="button"
         >
           {/* disabled pointer events since there is no menu to open */}
           <Avatar
             name={user.name}
             className="bg-avatar-100 text-white font-medium text-xxs leading-3 md:text-base md:leading-4 tracking-normal font-inter w-8 h-8 md:w-12 md:h-12"
+            aria-label="account avatar"
+            role="avatar"
           />
           <ChevronDown
             width={8}

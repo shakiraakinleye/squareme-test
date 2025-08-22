@@ -27,10 +27,11 @@ const SideNavDrawer = ({ open, openHandler }: SideNavDrawerProps) => {
       onOpenChange={openHandler}
       size="xs"
       placement="start"
+      role="dialog"
     >
       <DrawerBackdrop />
       <DrawerContent>
-        <DrawerCloseTrigger className="stroke-foreground-200" />
+        <DrawerCloseTrigger className="stroke-foreground-200" aria-label="close mobile side navigation" />
         <SideNavigation />
       </DrawerContent>
     </DrawerRoot>
@@ -50,6 +51,8 @@ export const MobileSideNav = () => {
         icon={Menu}
         onClick={sideNavDrawerHandler}
         iconClassName="w-6 h-6 stroke-foreground-200"
+        role="button"
+        aria-label="open mobile side navigation"
       />
       <SideNavDrawer open={open} openHandler={sideNavDrawerHandler} />
     </>
@@ -58,7 +61,7 @@ export const MobileSideNav = () => {
 
 const MobileNavBar = () => {
   return (
-    <nav className="w-full md:hidden bg-background-100 max--w-screen-2xl mx-auto">
+    <nav className="w-full md:hidden bg-background-100 max--w-screen-2xl mx-auto" role="navigation" aria-label="mobile navigation bar">
       <div className="w-full flex md:hidden items-center justify-between py-4 px-6 border-b border-border-10">
         <MobileSideNav />
         <Logo />
