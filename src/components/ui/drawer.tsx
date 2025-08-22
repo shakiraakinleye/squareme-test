@@ -38,8 +38,7 @@ export const DrawerCloseTrigger = React.forwardRef<
       {...props}
       asChild
     >
-      {/* <CloseButton size="sm" ref={ref} /> */}
-      <CloseButton size="sm" ref={ref}>
+      <CloseButton size="sm" ref={ref} >
         <MoveLeft className="stroke-inherit w-6 h-6" />
       </CloseButton>
     </ChakraDrawer.CloseTrigger>

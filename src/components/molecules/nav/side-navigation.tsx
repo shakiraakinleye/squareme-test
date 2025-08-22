@@ -17,6 +17,8 @@ const NavListItem = ({
         "w-full group md:hover:bg-blue-200",
         isActive && "md:bg-accent-100"
       )}
+      role="listitem"
+      aria-label="side navigation list item"
     >
       <Link
         className={cx(
@@ -37,8 +39,8 @@ const NavListItem = ({
 const SideNavigation = () => {
   const isActive = false;
   return (
-    <div className="bg-background-100 h-full w-full py-12 md:py-6 lg:py-8">
-      <ul className="w-full flex flex-col gap-y-2 md:gap-y-0.5">
+    <div className="bg-background-100 h-full w-full py-12 md:py-6 lg:py-8" role="navigation" aria-label="side navigation">
+      <ul className="w-full flex flex-col gap-y-2 md:gap-y-0.5" role="list" aria-label="side navigation list">
         {sideNavigation.map((item) => (
           <NavListItem key={item.id} isActive={isActive} item={item} />
         ))}
