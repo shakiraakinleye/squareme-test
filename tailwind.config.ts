@@ -17,6 +17,8 @@ const config: Config = {
           100: "var(--foreground-100)",
           200: "var(--foreground-200)",
           300: "var(--foreground-300)",
+          400: "var(--foreground-400)",
+          500: "var(--foreground-500)",
         },
         avatar: {
           100: "var(--avatar-100)",
@@ -34,6 +36,7 @@ const config: Config = {
         border: {
           100: "var(--border-100)",
           200: "var(--border-200)",
+          300: "var(--border-300)",
         },
         magenta: {
           100: "var(--magenta-100)",

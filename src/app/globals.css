@@ -11,10 +11,13 @@
   --foreground-100: #171717;
   --foreground-200: #23262f;
   --foreground-300: #000000;
+  --foreground-400: #424242;
+  --foreground-500: #292D32;
 
   /* border */
   --border-100: #e6eaee;
   --border-200: #EDEDF2;
+  --border-300: #DADAE7;
 
   /* avatar */
   --avatar-100: #0cbc8b;

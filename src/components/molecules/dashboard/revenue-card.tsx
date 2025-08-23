@@ -1,0 +1,91 @@
+"use client";
+
+import { useState } from "react";
+import { getRevenueData } from "@/api/user";
+import RevenueChart from "./revenue-chart";
+import { useQuery } from "@tanstack/react-query";
+import cx from "classnames";
+import { currencyFormatter } from "@/utils/currency-formatter";
+import RevenueFilterHeader from "./revenue-filter-header";
+import { RevenueFilterOptions } from "@/data/dashboard";
+import { RevenueFilter } from "@/types/dashboard";
+
+interface Props {
+  growthVal: number;
+  totalRevenue: number;
+  periodComparison: string;
+}
+
+const CardHeader = ({ growthVal, totalRevenue, periodComparison }: Props) => {
+  const isGrowthPos = growthVal >= 0;
+  const formattedValue = currencyFormatter(totalRevenue, "NGN", "symbol");
+
+  return (
+    <div className="hidden md:flex md:flex-col md:gap-y-3">
+      <div className="flex items-center gap-x-0.5 font-inter text-sm tracking-normal">
+        <h4 className="font-bold text-foreground-400 mr-1">Revenue:</h4>
+        <span
+          className={cx(
+            "font-inter text-sm tracking-normal font-light leading-5",
+            isGrowthPos ? "text-green-400" : "text-red-400"
+          )}
+        >
+          {isGrowthPos ? "+" : "-"}
+          {growthVal.toFixed(1)}
+        </span>
+        <span className="text-muted-100">vs</span>
+        <span className="text-muted-100 capitalize">{periodComparison}</span>
+      </div>
+
+      <div className="flex items-center gap-x-2 font-inter tracking-normal">
+        <h3 className="font-bold text-3xl leading-9 text-foreground-400">
+          {formattedValue}
+        </h3>
+        <p className="text-sm leading-5 text-foreground-300">in total value</p>
+      </div>
+    </div>
+  );
+};
+
+const RevenueCard = ({ userId }: { userId: string }) => {
+  const filters: RevenueFilter[] = Object.values(RevenueFilterOptions);
+  const [filter, setFilter] = useState<string[]>([filters[0]]);
+
+  const {
+    data: revenueData,
+    isPending,
+    // isError,
+    // error,
+  } = useQuery({
+    queryKey: ["revenue", userId, filter],
+    queryFn: () => getRevenueData(userId, filter[0]),
+  });
+
+  return (
+    <div
+      role="article"
+      aria-label="revenue card"
+      className="flex flex-col gap-y-3 md:gap-y-4 md:px-6 md:pb-6 border-2 border-border-200 rounded-md"
+    >
+      <RevenueFilterHeader
+        filters={filters}
+        currentFilter={filter}
+        setFilter={setFilter}
+      />
+
+      {isPending && <div>isPending</div>}
+      {revenueData && (
+        <div className="md:px-7 md:py-8 bg-background-100 md:flex md:flex-col md:gap-y-8 md:border-2 md:border-border-200 md:rounded-md">
+          <CardHeader
+            growthVal={revenueData.growth}
+            totalRevenue={revenueData.totalRevenue}
+            periodComparison="Last 7 days"
+          />
+          <RevenueChart data={revenueData.data} />
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default RevenueCard;
