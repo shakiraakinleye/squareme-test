@@ -3,10 +3,15 @@ import { User } from "@/types/user";
 
 // to be fetched
 const userSample = {
-  id: "user_123",
-  name: "damilola akinleye",
-  email: "shakiraakin@gmail.com",
-  imageSrc: "",
+  "id": "user_123",
+  "name": "damilola akinleye",
+  "email": "shakiraakin@gmail.com",
+  "imageSrc": "",
+  "accountDetails": {
+    "bank": "Sterling Bank",
+    "accountNumber": "8000000000",
+    "accountName": "Ogedengbe Fruits Store"
+  },
 };
 
 const initialState: {

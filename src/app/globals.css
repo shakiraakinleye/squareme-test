@@ -10,21 +10,27 @@
   /* foreground */
   --foreground-100: #171717;
   --foreground-200: #23262f;
+  --foreground-300: #000000;
 
   /* border */
   --border-100: #e6eaee;
+  --border-200: #EDEDF2;
 
   /* avatar */
   --avatar-100: #0cbc8b;
 
   /* muted */
   --muted-100: #606060;
+  --muted-200: #8F8E8E;
 
   /* grey */
   --grey-100: #04004d;
 
   /* accent */
   --accent-100: #3976e8;
+
+  /* magenta */
+  --magenta-100: #9F56D4;
 }
 
 /* @media (prefers-color-scheme: dark) {
