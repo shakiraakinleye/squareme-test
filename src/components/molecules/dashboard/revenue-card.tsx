@@ -4,11 +4,13 @@ import { useState } from "react";
 import { getRevenueData } from "@/api/user";
 import RevenueChart from "./revenue-chart";
 import { useQuery } from "@tanstack/react-query";
-import cx from "classnames";
 import { currencyFormatter } from "@/utils/currency-formatter";
 import RevenueFilterHeader from "./revenue-filter-header";
 import { RevenueFilterOptions } from "@/data/dashboard";
 import { RevenueFilter } from "@/types/dashboard";
+import { Skeleton } from "@/components/ui/skeleton";
+import ErrorState from "../error-state";
+import cx from "classnames";
 
 interface Props {
   growthVal: number;
@@ -54,8 +56,7 @@ const RevenueCard = ({ userId }: { userId: string }) => {
   const {
     data: revenueData,
     isPending,
-    // isError,
-    // error,
+    isError,
   } = useQuery({
     queryKey: ["revenue", userId, filter],
     queryFn: () => getRevenueData(userId, filter[0]),
@@ -73,7 +74,18 @@ const RevenueCard = ({ userId }: { userId: string }) => {
         setFilter={setFilter}
       />
 
-      {isPending && <div>isPending</div>}
+      {isPending && (
+        <div className="w-full h-full flex items-center justify-center">
+          <Skeleton height="400px" className="w-full rounded-lg" />
+        </div>
+      )}
+
+      {isError && (
+        <div className="w-full h-full flex items-center justify-center">
+          <ErrorState message="Something went wrong. Please, reload page" />
+        </div>
+      )}
+
       {revenueData && (
         <div className="md:px-7 md:py-8 bg-background-100 md:flex md:flex-col md:gap-y-8 md:border-2 md:border-border-200 md:rounded-md">
           <CardHeader
