@@ -1,3 +1,5 @@
+"use client";
+
 import type { ButtonProps, InputProps } from "@chakra-ui/react";
 import {
   Button,

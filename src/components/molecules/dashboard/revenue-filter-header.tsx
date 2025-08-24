@@ -9,7 +9,7 @@ interface Props {
 
 const RevenueFilterHeader = ({ filters, currentFilter, setFilter }: Props) => {
   return (
-    <div className="py-3 md:py-4 flex md:justify-between px-3 md:px-0">
+    <div className="py-3 md:py-4 flex md:justify-between px-3 md:px-0" role="header" aria-label="revenue filter header">
 
       <div className="flex items-center justify-between gap-x-4 w-full md:w-fit font-inter leading-normal tracking-normal">
         <h3 className="md:hidden font-semibold text-lg text-foreground-500">Revenue</h3>

@@ -33,8 +33,14 @@ const FilterSelect = ({
       value={currentFilter}
       onValueChange={(e) => setFilter(e.value)}
       positioning={{ placement: "left" }}
+      role="select"
+      aria-label="filter select box"
     >
-      <SelectTrigger className="border border-border-300 rounded-3xl md:rounded-lg bg-background-100 flex items-center text-zinc-500 stroke-zinc-500 px-3">
+      <SelectTrigger
+        className="border border-border-300 rounded-3xl md:rounded-lg bg-background-100 flex items-center text-zinc-500 stroke-zinc-500 px-3"
+        role="button"
+        aria-label="select trigger"
+      >
         <SelectValueText className="font-inter font-semibold text-xs md:text-sm leading-5 tracking-normal capitalize" />
       </SelectTrigger>
       <SelectContent className="bg-white w-56">
@@ -43,6 +49,8 @@ const FilterSelect = ({
             item={item}
             key={item}
             className="text-foreground-200 text-xs md:text-sm capitalize"
+            role="option"
+            aria-label="option"
           >
             {item}
           </SelectItem>

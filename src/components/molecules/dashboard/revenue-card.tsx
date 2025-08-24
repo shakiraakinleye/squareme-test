@@ -18,12 +18,20 @@ interface Props {
   periodComparison: string;
 }
 
-const CardHeader = ({ growthVal, totalRevenue, periodComparison }: Props) => {
+export const ChartHeader = ({
+  growthVal,
+  totalRevenue,
+  periodComparison,
+}: Props) => {
   const isGrowthPos = growthVal >= 0;
   const formattedValue = currencyFormatter(totalRevenue, "NGN", "symbol");
 
   return (
-    <div className="hidden md:flex md:flex-col md:gap-y-3">
+    <div
+      className="hidden md:flex md:flex-col md:gap-y-3"
+      role="header"
+      aria-label="revenue chart header"
+    >
       <div className="flex items-center gap-x-0.5 font-inter text-sm tracking-normal">
         <h4 className="font-bold text-foreground-400 mr-1">Revenue:</h4>
         <span
@@ -75,7 +83,7 @@ const RevenueCard = ({ userId }: { userId: string }) => {
       />
 
       {isPending && (
-        <div className="w-full h-full flex items-center justify-center">
+        <div className="w-full h-full p-2 md:p-4 flex items-center justify-center">
           <Skeleton height="400px" className="w-full rounded-lg" />
         </div>
       )}
@@ -88,12 +96,18 @@ const RevenueCard = ({ userId }: { userId: string }) => {
 
       {revenueData && (
         <div className="md:px-7 md:py-8 bg-background-100 md:flex md:flex-col md:gap-y-8 md:border-2 md:border-border-200 md:rounded-md">
-          <CardHeader
-            growthVal={revenueData.growth}
-            totalRevenue={revenueData.totalRevenue}
+          <ChartHeader
+            growthVal={revenueData.growth ?? 0}
+            totalRevenue={revenueData.totalRevenue ?? 0}
             periodComparison="Last 7 days"
           />
-          <RevenueChart data={revenueData.data} />
+          {!revenueData.data || revenueData.data.length === 0 ? (
+            <div className="text-base md:text-lg text-gray-500 p-4 text-center">
+              No records available
+            </div>
+          ) : (
+            <RevenueChart data={revenueData.data} />
+          )}
         </div>
       )}
     </div>

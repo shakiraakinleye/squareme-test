@@ -2,25 +2,12 @@ import { Link, Tabs } from "@chakra-ui/react";
 import { Tab } from "@/types/dashboard";
 import OnlinePaymentsDisplay from "../molecules/dashboard/online-payments";
 
-export const tabs: Tab[] = [
-  {
-    id: "938930",
-    title: "online payments",
-    query: "online-payments",
-    content: <OnlinePaymentsDisplay />,
-  },
-  {
-    id: "93763930",
-    title: "orders",
-    query: "orders",
-    content: null,
-  },
-];
-
 export const DashboardTabs = ({
   currentTab,
+  tabs,
 }: {
   currentTab: string | undefined;
+  tabs: Tab[];
 }) => {
   return (
     <Tabs.Root
@@ -33,7 +20,7 @@ export const DashboardTabs = ({
       <Tabs.List
         className="px-6 md:px-8 border-b-2 border-border-200 flex items-center gap-x-2"
         unstyled
-        role="list"
+        role="tablist"
         aria-label="dashboard tabs list"
       >
         {tabs.map((tab) => {
@@ -71,13 +58,27 @@ export const DashboardTabs = ({
         <Tabs.Indicator />
       </Tabs.List>
       {tabs.map((tab) => (
-        <Tabs.Content key={tab.id} value={tab.query} className="px-6 md:px-8">
+        <Tabs.Content
+          key={tab.id}
+          value={tab.query}
+          className="px-6 md:px-8"
+          aria-label="dashboard tab content"
+        >
           {tab.content}
         </Tabs.Content>
       ))}
     </Tabs.Root>
   );
 };
+
+export const tabs: Tab[] = [
+  {
+    id: "938930",
+    title: "online payments",
+    query: "online-payments",
+    content: <OnlinePaymentsDisplay />,
+  },
+];
 
 const DashboardContent = ({
   currentTab,
@@ -86,7 +87,7 @@ const DashboardContent = ({
 }) => {
   return (
     <div className="py-4 md:py-10 md:pl-6">
-      <DashboardTabs currentTab={currentTab} />
+      <DashboardTabs tabs={tabs} currentTab={currentTab} />
     </div>
   );
 };

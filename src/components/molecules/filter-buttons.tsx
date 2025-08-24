@@ -13,7 +13,7 @@ const FilterButtons = ({ filters, currentFilter, setFilter }: Props) => {
   };
 
   return (
-    <div className="flex items-center gap-x-3">
+    <div className="flex items-center gap-x-3" role="list" aria-label="filter buttons list">
       {filters.map((filter) => (
         <Button
           key={filter}

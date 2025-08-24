@@ -1,6 +1,7 @@
 import { screen } from "@testing-library/react";
 import { customRender } from "@/utils/test-utils";
 import SideNavigation from "@/components/molecules/nav/side-navigation";
+import { sideNavigation } from "@/data/navigation";
 
 describe("Side Navigation", () => {
   test("renders all navigation list", () => {
@@ -15,7 +16,7 @@ describe("Side Navigation", () => {
     const listItems = screen.getAllByRole("listitem", {
       name: /side navigation list item/i,
     });
-    expect(listItems.length).toEqual(6);
+    expect(listItems.length).toEqual(sideNavigation.length);
   });
 
 //   test("highlights active link correctly", () => {
