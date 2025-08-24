@@ -1,6 +1,8 @@
-import { screen, fireEvent, within, waitFor } from "@testing-library/react";
+import { screen, within, waitFor } from "@testing-library/react";
 import { mockMatchMedia, customRender } from "@/utils/test-utils";
 import MobileNavBar from "@/components/organisms/mobile-navs";
+import { user } from "@/utils/test-utils"
+
 
 describe("Mobile Navigation Bar", () => {
   test("renders only on mobile (hidden on tablet/desktop)", () => {
@@ -32,7 +34,7 @@ describe("Mobile Navigation Bar", () => {
     const sideNavTrigger = screen.getByRole("button", {
       name: /open mobile side navigation/i,
     });
-    fireEvent.click(sideNavTrigger);
+    user.click(sideNavTrigger);
 
     const sideNavDrawer = await screen.findByRole("dialog");
     expect(sideNavDrawer).toBeInTheDocument();
@@ -45,7 +47,7 @@ describe("Mobile Navigation Bar", () => {
     const closeButton = within(sideNavDrawer).getByRole("button", {
       name: /close mobile side navigation/i,
     });
-    fireEvent.click(closeButton);
+    user.click(closeButton);
 
     await waitFor(() => {
       expect(sideNavDrawer).not.toBeInTheDocument();

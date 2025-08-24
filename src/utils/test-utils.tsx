@@ -1,5 +1,8 @@
 import { render } from "@testing-library/react";
 import Providers from "@/providers";
+import userEvent from '@testing-library/user-event'
+
+export const user = userEvent.setup();
 
 export const customRender = (ui: React.ReactElement) =>
   render(<Providers>{ui}</Providers>);
