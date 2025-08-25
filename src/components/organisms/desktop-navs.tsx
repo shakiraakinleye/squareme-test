@@ -5,7 +5,11 @@ import NavButtons from "../molecules/nav/nav-buttons";
 
 const DesktopSideNav = () => {
   return (
-    <div className="hidden md:block w-48 xl:w-64 min-h-screen md:border-r md:border-border-100" role="navigation" aria-label="desktop side navigation">
+    <div
+      className="hidden md:block w-48 xl:w-64 min-h-screen md:border-r md:border-border-100"
+      role="navigation"
+      aria-label="desktop side navigation"
+    >
       <SideNavigation />
     </div>
   );
@@ -13,8 +17,12 @@ const DesktopSideNav = () => {
 
 const DesktopNavBar = () => {
   return (
-    <nav className="hidden md:block w-full bg-background-100 max--w-screen-2xl mx-auto" role="navigation" aria-label="desktop navigation bar">
-      <div className="hidden md:w-full md:flex md:items-center md:justify-between md:py-4 md:px-6 lg:px-8 border-b border-border-100">
+    <nav
+      className="hidden md:flex w-full bg-background-100 mx-auto"
+      role="navigation"
+      aria-label="desktop navigation bar"
+    >
+      <div className="w-full flex items-center justify-between md:py-4 md:px-6 lg:px-8 border-b border-border-100">
         <Logo />
         <NavButtons />
       </div>

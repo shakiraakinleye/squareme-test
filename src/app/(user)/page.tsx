@@ -9,7 +9,7 @@ interface PageProps {
 
 export default function Dashboard({ searchParams }: PageProps) {
   return (
-    <div className="relative bg-background-100 md:bg-background-200 max-w-screen-2xl mx-auto flex-1 w-full">
+    <div className="relative bg-background-100 md:bg-background-200 mx-auto flex-1 w-full">
       <MobileNavBar />
       <DashboardContent currentTab={searchParams.tab} />
     </div>
