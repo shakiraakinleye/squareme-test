@@ -94,7 +94,7 @@ const TransactionsListMobile = ({
   transactions: Transaction[];
 }) => {
   return (
-    <div className="w-full md:hidden px-6">
+    <div className="w-full md:hidden px-6 pb-10">
       <h4 className="font-inter font-semibold text-lg leading-normal tracking-normal text-gray-900 mb-4">
         Transactions
       </h4>
