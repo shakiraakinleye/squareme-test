@@ -28,15 +28,15 @@ export const ChartHeader = ({
 
   return (
     <div
-      className="hidden md:flex md:flex-col md:gap-y-3"
+      className="flex flex-col gap-y-2 md:gap-y-3 px-3 md:px-0"
       role="header"
       aria-label="revenue chart header"
     >
-      <div className="flex items-center gap-x-0.5 font-inter text-sm tracking-normal">
+      <div className="flex items-center gap-x-0.5 font-inter text-xxs md:text-sm tracking-normal">
         <h4 className="font-bold text-foreground-400 mr-1">Revenue:</h4>
         <span
           className={cx(
-            "font-inter text-sm tracking-normal font-light leading-5",
+            "font-inter text-xxs md:text-sm tracking-normal font-light leading-5",
             isGrowthPos ? "text-green-400" : "text-red-400"
           )}
         >
@@ -48,10 +48,12 @@ export const ChartHeader = ({
       </div>
 
       <div className="flex items-center gap-x-2 font-inter tracking-normal">
-        <h3 className="font-bold text-3xl leading-9 text-foreground-400">
+        <h3 className="font-bold text-lg md:text-3xl leading-5 md:leading-9 text-foreground-400">
           {formattedValue}
         </h3>
-        <p className="text-sm leading-5 text-foreground-300">in total value</p>
+        <p className="text-xxs md:text-sm leading-5 text-foreground-300">
+          in total value
+        </p>
       </div>
     </div>
   );
@@ -95,7 +97,7 @@ const RevenueCard = ({ userId }: { userId: string }) => {
       )}
 
       {revenueData && (
-        <div className="md:px-7 md:py-8 bg-background-100 md:flex md:flex-col md:gap-y-8 md:border-2 md:border-border-200 md:rounded-md">
+        <div className="md:px-7 md:py-8 bg-background-100 flex flex-col gap-y-4 md:gap-y-8 md:border-2 md:border-border-200 md:rounded-md">
           <ChartHeader
             growthVal={revenueData.growth ?? 0}
             totalRevenue={revenueData.totalRevenue ?? 0}

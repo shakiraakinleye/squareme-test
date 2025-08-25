@@ -32,11 +32,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${playfair.variable} flex flex-col antialiased min-h-screen w-full max-w-full bg-background-200 selection:bg-zinc-200 transition-colors duration-700 ease-in`}
+        className={`${inter.variable} ${playfair.variable} w-full flex flex-col antialiased min-h-screen bg-background-100 lg:bg-background-200 selection:bg-zinc-200 transition-colors duration-700 ease-in`}
       >
         <Providers>
           <DesktopNavBar />
-          <main className="flex w-full flex-1">
+          <main className="flex w-full flex-1 mx-auto">
             <DesktopSideNav />
             <div className="flex w-full flex-1">{children}</div>
           </main>

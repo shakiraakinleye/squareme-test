@@ -15,9 +15,9 @@ const RevenueChart = ({ data }: { data: RevenueItem[] }) => {
   const [isDesktop] = useMediaQuery(["(min-width: 768px)"]);
 
   return (
-    <Chart.Root maxH="xs" chart={chart} role="chart" aria-label="revenue chart"> 
+    <Chart.Root maxH="xs" chart={chart} role="chart" aria-label="revenue chart">
       <BarChart data={chart.data}>
-        <CartesianGrid stroke={chart.color("gray.200")} vertical={false} />›
+        <CartesianGrid stroke={chart.color("gray.200")} vertical={false} />
         <XAxis
           axisLine={false}
           tickLine={false}
