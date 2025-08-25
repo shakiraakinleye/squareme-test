@@ -45,7 +45,7 @@ const TransactionsListDesktop = ({
   });
 
   return (
-    <ul className="w-full px-4 2xl:px-6 pt-6">
+    <ul className="hidden md:block w-full px-4 2xl:px-6 pt-6">
       <li className="w-full pl-2 pr-4 py-4 border-b border-border-200 grid grid-flow-row grid-cols-12 items-center font-inter text-xs leading-4 text-muted-400 font-semibold uppercase">
         <span className="col-span-1 flex items-center justify-center">
           <Checkbox
@@ -94,7 +94,7 @@ const TransactionsListMobile = ({
   transactions: Transaction[];
 }) => {
   return (
-    <div className="w-full px-6">
+    <div className="w-full md:hidden px-6">
       <h4 className="font-inter font-semibold text-lg leading-normal tracking-normal text-gray-900 mb-4">
         Transactions
       </h4>

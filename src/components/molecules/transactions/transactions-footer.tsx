@@ -22,7 +22,7 @@ const TransactionsFooter = ({
   totalListLength,
 }: Props) => {
   return (
-    <div className="md:px-10 lg:px-16 md:py-6 2xl:px-20">
+    <div className="hidden md:block md:px-10 lg:px-16 md:py-6 2xl:px-20">
       <PaginationRoot
         count={totalListLength}
         pageSize={pageLength}

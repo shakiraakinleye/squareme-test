@@ -12,45 +12,47 @@ import {
 import TransactionsFooter from "../molecules/transactions/transactions-footer";
 import { getTransactions } from "@/api/user";
 import { useMediaQuery } from "@chakra-ui/react";
+import { TransactionsListSkeleton } from "../molecules/skeleton/transaction-card";
+import ErrorState from "../molecules/error-state";
 
 const TransactionsTable = ({ userId }: { userId: string }) => {
   const [isDesktop] = useMediaQuery(["(min-width: 768px)"]);
   const [page, setPage] = useState(1);
-  const { data, isPending, isError } = useQuery({
+  const { data, isPending, isError, error } = useQuery({
     queryKey: ["transactions", userId, page],
     queryFn: () => getTransactions(userId, page),
     staleTime: 0,
     gcTime: 0,
   });
 
-  if (isPending) return <div>loading</div>;
-  if (isError) return <div>error</div>;
+  return (
+    <div className="space-y-6">
+      <TransactionsHeader />
 
-  if (!data) return <div>no data</div>;
+      {isPending && <TransactionsListSkeleton />}
 
-  if (data) {
-    const transactions = data.transactions;
-    const pageLength = data.per_page;
-    const totalListLength = data.total;
-    return (
-      <div className="space-y-6">
-        <TransactionsHeader />
-        {isDesktop ? (
-          <div>
-            <TransactionsListDesktop transactions={transactions} />
-            <TransactionsFooter
-              page={page}
-              setPage={setPage}
-              pageLength={pageLength}
-              totalListLength={totalListLength}
-            />
-          </div>
-        ) : (
-          <TransactionsListMobile transactions={transactions} />
-        )}
-      </div>
-    );
-  }
+      {isError && <ErrorState message={error.message} />}
+
+      {data && (
+        <>
+          {isDesktop ? (
+            <div>
+              <TransactionsListDesktop transactions={data.transactions} />
+              <TransactionsFooter
+                page={page ?? 1}
+                setPage={setPage}
+                pageLength={data.per_page ?? 0}
+                totalListLength={data.total ?? 0}
+              />
+            </div>
+          ) : (
+            <TransactionsListMobile transactions={data.transactions} />
+          )}
+        </>
+      )}
+    </div>
+    
+  );
 };
 
 const TransactionsPage = () => {
