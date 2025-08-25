@@ -15,7 +15,8 @@ export interface DateRangeProps {
 }
 
 export const RangePicker = ({ ranges, setRanges }: DateRangeProps) => {
-  const changeHandler = (e) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const changeHandler = (e: any) => {
     setRanges([e.selection]);
   };
 
