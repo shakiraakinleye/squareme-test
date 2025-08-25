@@ -3,7 +3,7 @@ import { User } from "@/types/user";
 
 // to be fetched
 const userSample = {
-  "id": "user_123",
+  "id": "000123",
   "name": "damilola akinleye",
   "email": "shakiraakin@gmail.com",
   "imageSrc": "",
