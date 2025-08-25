@@ -15,7 +15,7 @@ import { useMediaQuery } from "@chakra-ui/react";
 import { TransactionsListSkeleton } from "../molecules/skeleton/transaction-card";
 import ErrorState from "../molecules/error-state";
 
-const TransactionsTable = ({ userId }: { userId: string }) => {
+export const TransactionsTable = ({ userId }: { userId: string }) => {
   const [isDesktop] = useMediaQuery(["(min-width: 768px)"]);
   const [page, setPage] = useState(1);
   const { data, isPending, isError, error } = useQuery({
@@ -51,7 +51,7 @@ const TransactionsTable = ({ userId }: { userId: string }) => {
         </>
       )}
     </div>
-    
+
   );
 };
 

@@ -45,9 +45,21 @@ const TransactionsListDesktop = ({
   });
 
   return (
-    <ul className="hidden md:block w-full px-4 2xl:px-6 pt-6">
-      <li className="w-full pl-2 pr-4 py-4 border-b border-border-200 grid grid-flow-row grid-cols-12 items-center font-inter text-xs leading-4 text-muted-400 font-semibold uppercase">
-        <span className="col-span-1 flex items-center justify-center">
+    <ul
+      className="hidden md:block w-full px-4 2xl:px-6 pt-6"
+      role="list"
+      aria-label="desktop transactions list"
+    >
+      <li
+        className="w-full pl-2 pr-4 py-2 border-b border-border-200 grid grid-flow-row grid-cols-12 gap-x-2 items-start font-inter text-xs text-center leading-4 text-muted-400 font-semibold uppercase"
+        role="header"
+        aria-label="desktop transactions list header"
+      >
+        <span
+          className="col-span-1 flex items-center justify-center"
+          role="cell"
+          aria-label="checkbox header"
+        >
           <Checkbox
             checked={indeterminate ? "indeterminate" : allChecked}
             onCheckedChange={(e) => {
@@ -61,22 +73,46 @@ const TransactionsListDesktop = ({
             className="border bg-background-200 border-border-400 rounded-md"
           />
         </span>
-        <span className="col-span-2 flex items-center justify-center">
+        <span
+          className="col-span-2 flex items-center justify-center"
+          role="cell"
+          aria-label="amount header"
+        >
           Amount
         </span>
-        <span className="col-span-2 flex items-center justify-center">
+        <span
+          className="col-span-2 flex items-center justify-center"
+          role="cell"
+          aria-label="transaction id header"
+        >
           Transaction ID
         </span>
-        <span className="col-span-2 flex items-center justify-center">
+        <span
+          className="col-span-2 flex items-center justify-center"
+          role="cell"
+          aria-label="transaction type header"
+        >
           Transaction Type
         </span>
-        <span className="col-span-2 flex items-center justify-center">
+        <span
+          className="col-span-2 flex items-center justify-center"
+          role="cell"
+          aria-label="date header"
+        >
           Date
         </span>
-        <span className="col-span-2 flex items-center justify-center">
+        <span
+          className="col-span-1 flex items-center justify-center"
+          role="cell"
+          aria-label="time header"
+        >
           Time
         </span>
-        <span className="col-span-1 flex items-center justify-center">
+        <span
+          className="col-span-2 flex items-center justify-center"
+          role="cell"
+          aria-label="transaction status header"
+        >
           Status
         </span>
       </li>
@@ -94,12 +130,19 @@ const TransactionsListMobile = ({
   transactions: Transaction[];
 }) => {
   return (
-    <div className="w-full md:hidden px-6 pb-10">
+    <div
+      className="w-full md:hidden px-6 pb-10"
+      data-testid="mobile transactions list"
+    >
       <h4 className="font-inter font-semibold text-lg leading-normal tracking-normal text-gray-900 mb-4">
         Transactions
       </h4>
 
-      <ul className="flex flex-col gap-y-4">
+      <ul
+        className="flex flex-col gap-y-4"
+        role="list"
+        aria-label="mobile transactions list"
+      >
         {transactions.map((trx) => {
           return <TransactionCardMobile key={trx.transaction_id} trx={trx} />;
         })}

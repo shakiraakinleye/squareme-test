@@ -37,7 +37,7 @@ const StatusBadge = ({ status }: { status: TransactionStatus | string }) => {
   return (
     <Badge
       className={cx(
-        "w-full flex items-center justify-center px-2.5 py-1.5 border rounded-full",
+        "w-full flex items-center justify-center px-2 xl:px-2.5 py-1.5 border rounded-full overflow-x-hidden",
         colors.bg,
         colors.border,
         colors.text
@@ -48,7 +48,7 @@ const StatusBadge = ({ status }: { status: TransactionStatus | string }) => {
       />
       <span
         className={cx(
-          "capitalize font-inter text-xxs leading-4 lg:text-xs 2xl:text-sm 2xl:leading-5 tracking-normal",
+          "capitalize font-inter text-xxs leading-4 xl:text-xs 2xl:text-sm 2xl:leading-5 tracking-normal",
           colors.text
         )}
       >

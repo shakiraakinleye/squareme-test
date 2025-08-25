@@ -19,7 +19,11 @@ const TransactionsHeader = () => {
 
   const ExportButton = () => {
     return (
-      <Button className="py-2.5 px-4 gap-x-2 text-foreground-600 stroke-foreground-600 border border-border-300 rounded-lg bg-background-100">
+      <Button
+        className="py-2.5 px-4 gap-x-2 text-foreground-600 stroke-foreground-600 border border-border-300 rounded-lg bg-background-100"
+        role="button"
+        aria-label="export button"
+      >
         <CloudUpload className="w-5 h-5" />
         <span className="capitalize font-medium font-inter text-xs xl:text-sm leading-4">
           export
@@ -29,7 +33,11 @@ const TransactionsHeader = () => {
   };
 
   return (
-    <div className="w-full py-4 px-6 md:pl-10 lg:pl-16 md:py-6 2xl:pl-20 md:pr-8 2xl:pr-10 md:border-b-2 md:border-border-200 flex flex-col md:flex-row gap-3 md:gap-4 items-start md:items-center md:justify-between">
+    <div
+      className="w-full py-4 px-6 md:pl-10 lg:pl-16 md:py-6 2xl:pl-20 md:pr-8 2xl:pr-10 md:border-b-2 md:border-border-200 flex flex-col md:flex-row gap-3 md:gap-4 items-start md:items-center md:justify-between"
+      role="header"
+      aria-label="transactions list header"
+    >
       <div className="flex w-full md:w-fit items-center justify-between gap-x-2 ">
         <FilterSelect
           filterList={filters}

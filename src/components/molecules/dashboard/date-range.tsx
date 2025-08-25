@@ -16,7 +16,7 @@ export const DateRangeDisplay = ({ ranges }: { ranges: RangeType[] }) => {
   const endDate = ranges[0].endDate;
 
   return (
-    <div className="flex items-center justify-start gap-x-2 lg:gap-x-3 w-[200px] lg:w-[250px]">
+    <div className="flex items-center justify-start gap-x-2 lg:gap-x-3 w-[200px] lg:w-[250px]" role="textbox" aria-label="date range display">
       <CalendarDays
         strokeWidth={1.5}
         className="w-4 h-4 lg:w-5 lg:h-5 stroke-zinc-500"
@@ -38,7 +38,7 @@ export const DateRange = ({ ranges, setRanges }: DateRangeProps) => {
       <PopoverTrigger className="border border-border-300 bg-background-100 rounded-lg px-3 lg:px-4 py-2 lg:py-2.5">
         <DateRangeDisplay ranges={ranges} />
       </PopoverTrigger>
-      <PopoverContent className="border border-border-300 rounded-lg overflow-hidden relative w-fit">
+      <PopoverContent className="border border-border-300 rounded-lg overflow-hidden relative w-fit" aria-label="date range picker">
         <RangePicker ranges={ranges} setRanges={setRanges} />
       </PopoverContent>
     </PopoverRoot>

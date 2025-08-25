@@ -22,7 +22,7 @@ const TransactionsFooter = ({
   totalListLength,
 }: Props) => {
   return (
-    <div className="hidden md:block md:px-10 lg:px-16 md:py-6 2xl:px-20">
+    <footer className="hidden md:block md:px-10 lg:px-16 md:py-6 2xl:px-20" role="footer" aria-label="transactions list footer">
       <PaginationRoot
         count={totalListLength}
         pageSize={pageLength}
@@ -45,7 +45,7 @@ const TransactionsFooter = ({
           <PaginationNextTrigger className="text-muted-300 border border-border-300" />
         </ButtonGroup>
       </PaginationRoot>
-    </div>
+    </footer>
   );
 };
 
