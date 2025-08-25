@@ -14,15 +14,20 @@ export interface Tab {
 export type RevenueFilter =
   typeof RevenueFilterOptions[keyof typeof RevenueFilterOptions];
 
-export interface RevenueItem {
+export interface Revenue {
+  id: string;
+  userId: string;
+  amount: number;
+  date: string;
+}
+
+export interface RevenueChartData {
   timeframe: string;
   value: number;
 }
 
-export interface RevenueData {
-  id: string;
-  filter: RevenueFilter;
-  data: RevenueItem[];
+export interface RevenueStats {
+  chart: RevenueChartData[];
+  total: number;
   growth: number;
-  totalRevenue: number;
 }

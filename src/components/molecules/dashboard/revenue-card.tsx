@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { getRevenueData } from "@/api/user";
+import { getRevenueData } from "@/api/revenue";
 import RevenueChart from "./revenue-chart";
 import { useQuery } from "@tanstack/react-query";
 import { currencyFormatter } from "@/utils/currency-formatter";
@@ -61,17 +61,13 @@ export const ChartHeader = ({
 
 const RevenueCard = ({ userId }: { userId: string }) => {
   const filters: RevenueFilter[] = Object.values(RevenueFilterOptions);
-  const [filter, setFilter] = useState<string[]>([filters[0]]);
+  const [filter, setFilter] = useState<string[]>([filters[filters.length - 1]]);
 
-  const {
-    data: revenueData,
-    isPending,
-    isError,
-  } = useQuery({
+  const { data, isPending, isError } = useQuery({
     queryKey: ["revenue", userId, filter],
-    queryFn: () => getRevenueData(userId, filter[0]),
+    queryFn: () => getRevenueData(userId, filter[0] as RevenueFilter),
   });
-
+ 
   return (
     <div
       role="article"
@@ -96,19 +92,19 @@ const RevenueCard = ({ userId }: { userId: string }) => {
         </div>
       )}
 
-      {revenueData && (
+      {data && (
         <div className="md:px-7 md:py-8 bg-background-100 flex flex-col gap-y-4 md:gap-y-8 md:border-2 md:border-border-200 md:rounded-md">
           <ChartHeader
-            growthVal={revenueData.growth ?? 0}
-            totalRevenue={revenueData.totalRevenue ?? 0}
+            growthVal={data.growth ?? 0}
+            totalRevenue={data.total ?? 0}
             periodComparison="Last 7 days"
           />
-          {!revenueData.data || revenueData.data.length === 0 ? (
+          {!data || data.chart.length === 0 ? (
             <div className="text-base md:text-lg text-gray-500 p-4 text-center">
               No records available
             </div>
           ) : (
-            <RevenueChart data={revenueData.data} />
+            <RevenueChart data={data.chart} />
           )}
         </div>
       )}
