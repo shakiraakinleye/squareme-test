@@ -54,3 +54,66 @@ export const mockTabs = [
     ),
   },
 ];
+
+export const mockTransactions = {
+  "page": 2,
+  "per_page": 6,
+  "total": 20,
+  "transactions": [
+    {
+      "amount": 38948,
+      "currency": "NGN",
+      "transaction_id": "TR_8401857908",
+      "transaction_type": "Transfer",
+      "date": "2022-02-12T00:00:00.000Z",
+      "time": "2025-08-25T10:30:00.000Z",
+      "status": "processed"
+    },
+    {
+      "amount": 52200,
+      "currency": "NGN",
+      "transaction_id": "TR_8401857909",
+      "transaction_type": "Deposit",
+      "date": "2022-02-13T00:00:00.000Z",
+      "time": "2022-02-13T09:15:00.000Z",
+      "status": "processed"
+    },
+    {
+      "amount": 15000,
+      "currency": "NGN",
+      "transaction_id": "TR_8401857910",
+      "transaction_type": "Withdrawal",
+      "date": "2022-02-13T00:00:00.000Z",
+      "time": "2022-02-13T11:45:00.000Z",
+      "status": "failed"
+    },
+    {
+      "amount": 28900,
+      "currency": "NGN",
+      "transaction_id": "TR_8401857911",
+      "transaction_type": "Request",
+      "date": "2022-02-13T00:00:00.000Z",
+      "time": "2022-02-13T14:10:00.000Z",
+      "status": "processed"
+    },
+    {
+      "amount": 74800,
+      "currency": "NGN",
+      "transaction_id": "TR_8401857912",
+      "transaction_type": "Transfer",
+      "date": "2022-02-14T00:00:00.000Z",
+      "time": "2022-02-14T08:20:00.000Z",
+      "status": "processed"
+    },
+    {
+      "amount": 32400,
+      "currency": "NGN",
+      "transaction_id": "TR_8401857913",
+      "transaction_type": "Withdrawal",
+      "date": "2022-02-14T00:00:00.000Z",
+      "time": "2022-02-14T16:30:00.000Z",
+      "status": "failed"
+    }
+  ],
+  "next_page": 3
+};

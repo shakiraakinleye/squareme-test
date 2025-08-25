@@ -5,7 +5,7 @@ import NavButtons from "../molecules/nav/nav-buttons";
 
 const DesktopSideNav = () => {
   return (
-    <div className="hidden md:block w-64 min-h-screen md:border-r md:border-border-100" role="navigation" aria-label="desktop side navigation">
+    <div className="hidden md:block w-48 xl:w-64 min-h-screen md:border-r md:border-border-100" role="navigation" aria-label="desktop side navigation">
       <SideNavigation />
     </div>
   );
