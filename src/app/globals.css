@@ -12,19 +12,37 @@
   --foreground-200: #23262f;
   --foreground-300: #000000;
   --foreground-400: #424242;
-  --foreground-500: #292D32;
+  --foreground-500: #292d32;
+  --foreground-600: #2E2E2E;
 
   /* border */
   --border-100: #e6eaee;
-  --border-200: #EDEDF2;
-  --border-300: #DADAE7;
+  --border-200: #ededf2;
+  --border-300: #dadae7;
+  --border-400: #b0babf;
 
   /* avatar */
   --avatar-100: #0cbc8b;
 
   /* muted */
   --muted-100: #606060;
-  --muted-200: #8F8E8E;
+  --muted-200: #8f8e8e;
+  --muted-300: #535379;
+  --muted-400: #84919a;
+  --muted-500: #696D8C;
+
+  /* badge */
+  --success-100: #effded;
+  --success-200: #5dc090;
+  --success-300: #144909;
+
+  --pending-100: #fffbea;
+  --pending-200: #ffb800;
+  --pending-300: #7a4f00;
+ 
+  --error-100: #FEECEE;
+  --error-200: #F14156;
+  --error-300: #740613;
 
   /* grey */
   --grey-100: #04004d;
@@ -33,7 +51,7 @@
   --accent-100: #3976e8;
 
   /* magenta */
-  --magenta-100: #9F56D4;
+  --magenta-100: #9f56d4;
 }
 
 /* @media (prefers-color-scheme: dark) {

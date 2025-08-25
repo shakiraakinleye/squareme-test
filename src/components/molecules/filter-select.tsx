@@ -9,17 +9,20 @@ import {
   SelectValueText,
 } from "@/components/ui/select";
 import { useMediaQuery } from "@chakra-ui/react";
+import cx from "classnames";
 
 interface FilterSelectProps {
   filterList: string[];
   currentFilter: string[];
   setFilter: (value: string[]) => void;
+  triggerClassName?: string;
 }
 
 const FilterSelect = ({
   filterList,
   currentFilter,
   setFilter,
+  triggerClassName
 }: FilterSelectProps) => {
   const list = createListCollection({
     items: filterList,
@@ -37,11 +40,11 @@ const FilterSelect = ({
       aria-label="filter select box"
     >
       <SelectTrigger
-        className="border border-border-300 rounded-3xl md:rounded-lg bg-background-100 flex items-center text-zinc-500 stroke-zinc-500 px-3"
+        className={cx("border border-border-300 rounded-3xl md:rounded-lg bg-background-100 flex items-center text-zinc-500 stroke-zinc-500 px-3", triggerClassName)}
         role="button"
         aria-label="select trigger"
       >
-        <SelectValueText className="font-inter font-semibold text-xs md:text-sm leading-5 tracking-normal capitalize" />
+        <SelectValueText className="font-inter font-semibold text-xs md:text-sm leading-5 tracking-normal capitalize shrink-0" />
       </SelectTrigger>
       <SelectContent className="bg-white w-56">
         {list.items.map((item) => (

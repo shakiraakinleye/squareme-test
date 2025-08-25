@@ -61,7 +61,7 @@ export const MobileSideNav = () => {
 
 const MobileNavBar = () => {
   return (
-    <nav className="w-full md:hidden bg-background-100 max--w-screen-2xl mx-auto" role="navigation" aria-label="mobile navigation bar">
+    <nav className="sticky top-0 inset-x-0 z-20 w-full md:hidden bg-background-100 max-w-screen-2xl mx-auto" role="navigation" aria-label="mobile navigation bar">
       <div className="w-full flex md:hidden items-center justify-between py-4 px-6 border-b border-border-10">
         <MobileSideNav />
         <Logo />
