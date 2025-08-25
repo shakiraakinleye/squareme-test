@@ -19,6 +19,7 @@ const config: Config = {
           300: "var(--foreground-300)",
           400: "var(--foreground-400)",
           500: "var(--foreground-500)",
+          600: "var(--foreground-600)",
         },
         avatar: {
           100: "var(--avatar-100)",
@@ -26,6 +27,9 @@ const config: Config = {
         muted: {
           100: "var(--muted-100)",
           200: "var(--muted-200)",
+          300: "var(--muted-300)",
+          400: "var(--muted-400)",
+          500: "var(--muted-500)",
         },
         grey: {
           100: "var(--grey-100)",
@@ -37,10 +41,25 @@ const config: Config = {
           100: "var(--border-100)",
           200: "var(--border-200)",
           300: "var(--border-300)",
+          400: "var(--border-400)",
         },
         magenta: {
           100: "var(--magenta-100)",
-          // 200: "var(--magenta-200)",
+        },
+        success: {
+          100: "var(--success-100)",
+          200: "var(--success-200)",
+          300: "var(--success-300)",
+        },
+        pending: {
+          100: "var(--pending-100)",
+          200: "var(--pending-200)",
+          300: "var(--pending-300)",
+        },
+        error: {
+          100: "var(--error-100)",
+          200: "var(--error-200)",
+          300: "var(--error-300)",
         },
       },
       fontFamily: {
