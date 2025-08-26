@@ -24,13 +24,19 @@ describe("Desktop Navigation", () => {
     expect(sideNav).toHaveClass("hidden md:block");
   });
 
-  test("Navigation Bar renders on logo and nav buttons", () => {
+  test("Navigation Bar renders logo and nav buttons", () => {
     customRender(<DesktopNavBar />);
     expect(
       screen.getByRole("img", { name: /brand logo/i })
     ).toBeInTheDocument();
+    
+      expect(
+      screen.getByRole("button", { name: /notifications button/i })
+    ).toBeInTheDocument();
+   
     expect(
-      screen.getByRole("list", { name: /navigation buttons/i })
+      screen.getByRole("button", { name: /open user menu/i })
     ).toBeInTheDocument();
   });
+  
 });

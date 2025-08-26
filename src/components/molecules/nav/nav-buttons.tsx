@@ -2,11 +2,9 @@
 
 import IconButton from "@/components/atoms/icon-button";
 import { Bell } from "lucide-react";
-import { Avatar } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
 import { useSelector } from "react-redux";
 import { RootState } from "@/state/store";
-import { ChevronDown } from "lucide-react";
+import UserMenuBtn from "./user-menu-button";
 
 const NavButtons = () => {
   const user = useSelector((state: RootState) => state.user.value);
@@ -24,25 +22,7 @@ const NavButtons = () => {
         role="button"
         aria-label="notifications button"
       />
-      {user && (
-        <Button
-          className="flex items-center gap-x-2 pointer-events-none min-w-fit min-h-fit"
-          aria-label="open account settings"
-          role="button"
-        >
-          {/* disabled pointer events since there is no menu to open */}
-          <Avatar
-            name={user.name}
-            className="bg-avatar-100 text-white font-medium text-xxs leading-3 md:text-base md:leading-4 tracking-normal font-inter w-8 h-8 md:w-12 md:h-12"
-            aria-label="account avatar"
-            role="avatar"
-          />
-          <ChevronDown
-            width={8}
-            className="hidden md:block fill-muted-100 stroke-muted-100 "
-          />
-        </Button>
-      )}
+      {user && <UserMenuBtn user={user} />}
     </div>
   );
 };
