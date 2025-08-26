@@ -1,6 +1,6 @@
 import { screen, within } from "@testing-library/react";
 import { customRender } from "@/utils/test-utils";
-import { mockTransactions } from "../mocks/data";
+import { mockTransactions } from "../../mocks/data";
 import {
   TransactionCardMobile,
   TransactionCardDesktop,

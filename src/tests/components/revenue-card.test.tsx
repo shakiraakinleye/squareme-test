@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import { customRender } from "@/utils/test-utils";
 import RevenueCard from "@/components/molecules/dashboard/revenue-card";
-import { mockUser } from "../mocks/data";
+import { mockUser } from "../../mocks/data";
 
 describe("Revenue Card", () => {
   test("renders the filter header", () => {
@@ -27,7 +27,9 @@ describe("Revenue Card", () => {
 
   test("renders the revenue chart skeleton", () => {
     customRender(<RevenueCard userId={mockUser.id} />);
-    const chartSkeleton = screen.getByRole("article", { name: /revenue chart loading/i });
+    const chartSkeleton = screen.getByRole("article", {
+      name: /revenue chart loading/i,
+    });
     expect(chartSkeleton).toBeInTheDocument();
   });
 });

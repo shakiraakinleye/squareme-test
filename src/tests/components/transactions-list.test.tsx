@@ -4,22 +4,18 @@ import {
   TransactionsListMobile,
 } from "@/components/molecules/transactions/transactions-list";
 import { customRender } from "@/utils/test-utils";
-import { mockTransactions } from "../mocks/data";
+import { mockTransactions } from "../../mocks/data";
 
 describe("Transactions List", () => {
   test("TransactionsListMobile renders only on mobile", () => {
-    customRender(
-      <TransactionsListMobile transactions={mockTransactions} />
-    );
+    customRender(<TransactionsListMobile transactions={mockTransactions} />);
     const list = screen.getByTestId(/mobile transactions list/i);
     expect(list).toBeInTheDocument();
     expect(list).toHaveClass("md:hidden");
   });
 
   test("TransactionsListMobile renders only on desktop", () => {
-    customRender(
-      <TransactionsListDesktop transactions={mockTransactions} />
-    );
+    customRender(<TransactionsListDesktop transactions={mockTransactions} />);
     const list = screen.getByRole("list", {
       name: /desktop transactions list/i,
     });
@@ -30,9 +26,7 @@ describe("Transactions List", () => {
 
 describe("Mobile Transactions List", () => {
   test("renders transaction cards", () => {
-    customRender(
-      <TransactionsListMobile transactions={mockTransactions} />
-    );
+    customRender(<TransactionsListMobile transactions={mockTransactions} />);
     const cards = screen.getAllByRole("article", {
       name: /mobile transaction card/i,
     });
@@ -42,9 +36,7 @@ describe("Mobile Transactions List", () => {
 
 describe("Desktop Transactions List", () => {
   test("renders transaction cards", () => {
-    customRender(
-      <TransactionsListDesktop transactions={mockTransactions} />
-    );
+    customRender(<TransactionsListDesktop transactions={mockTransactions} />);
     const cards = screen.getAllByRole("article", {
       name: /desktop transaction card/i,
     });
@@ -52,9 +44,7 @@ describe("Desktop Transactions List", () => {
   });
 
   test("renders list header card and the cells", () => {
-    customRender(
-      <TransactionsListDesktop transactions={mockTransactions} />
-    );
+    customRender(<TransactionsListDesktop transactions={mockTransactions} />);
 
     const header = screen.getByRole("header", {
       name: /desktop transactions list header/i,

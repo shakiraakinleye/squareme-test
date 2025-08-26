@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import { TransactionsTable } from "@/components/organisms/transactions-page";
 import { customRender } from "@/utils/test-utils";
-import { mockUser } from "../mocks/data";
+import { mockUser } from "../../mocks/data";
 
 describe("Transactions Page", () => {
   test("page renders with header", () => {
@@ -25,7 +25,7 @@ describe("Transactions Page", () => {
     });
     expect(list).toBeInTheDocument();
   });
-  
+
   test("page renders desktop list skeleton", async () => {
     customRender(<TransactionsTable userId={mockUser.id} />);
     const list = await screen.findByRole("article", {
@@ -33,5 +33,4 @@ describe("Transactions Page", () => {
     });
     expect(list).toBeInTheDocument();
   });
-
 });

@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import { customRender } from "@/utils/test-utils";
 import AccountCard from "@/components/molecules/dashboard/account-card";
-import { mockUser } from "../mocks/data";
+import { mockUser } from "../../mocks/data";
 import { user } from "@/utils/test-utils";
 
 describe("Account Card", () => {
