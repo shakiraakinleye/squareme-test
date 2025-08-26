@@ -81,7 +81,7 @@ const RevenueCard = ({ userId }: { userId: string }) => {
       />
 
       {isPending && (
-        <div className="w-full h-full p-2 md:p-4 flex items-center justify-center">
+        <div className="w-full h-full p-2 md:p-4 flex items-center justify-center" role="article" aria-label="revenue chart loading">
           <Skeleton height="400px" className="w-full rounded-lg" />
         </div>
       )}

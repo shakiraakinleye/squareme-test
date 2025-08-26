@@ -4,7 +4,7 @@ import { customRender } from "@/utils/test-utils";
 import { user } from "@/utils/test-utils";
 
 describe("Transactions List Header", () => {
-  test("renders filter select trigger, date range display, and export button", async () => {
+  test("renders filter select trigger, date range display, and 2 export buttons (mobile and desktop)", async () => {
     customRender(<TransactionsHeader />);
 
     expect(
@@ -15,7 +15,7 @@ describe("Transactions List Header", () => {
       await screen.findByRole("textbox", { name: /date range display/i })
     ).toBeInTheDocument();
 
-    // expect(screen.findByRole("button", { name: /export button/i })).toBeInTheDocument();
+    expect((await screen.findAllByRole("button", { name: /export button/i })).length).toEqual(2);
   });
 
   test("clicking filter select trigger displays select box", async () => {

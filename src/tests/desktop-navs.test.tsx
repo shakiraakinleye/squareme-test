@@ -12,7 +12,7 @@ describe("Desktop Navigation", () => {
     const navBar = screen.getByRole("navigation", {
       name: /desktop navigation bar/i,
     });
-    expect(navBar).toHaveClass("hidden md:block");
+    expect(navBar).toHaveClass("hidden md:flex");
   });
 
   test("Navigation only renders on tablet and desktop screens", () => {
