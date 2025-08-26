@@ -5,15 +5,20 @@ import {
   RefreshCw,
   FileText,
   Settings,
-} from "lucide-react"; // or any icon set you're using
+  User,
+  LockKeyhole,
+  KeyRound,
+  LucideIcon,
+} from "lucide-react";
 
+// SIDE NAVIGATION ITEMS
 export const sideNavigation = [
   {
     id: 1,
     label: "Get Started",
     icon: Globe,
-    // href: "/get-started",
-    href: "",
+    href: "/get-started",
+    // href: "",
   },
   {
     id: 2,
@@ -25,16 +30,15 @@ export const sideNavigation = [
     id: 3,
     label: "Accounts",
     icon: Wallet,
-    // href: "/accounts",
-    href: "",
+    href: "/accounts",
+    // href: "",
   },
   {
     id: 4,
     label: "Transfers",
     icon: RefreshCw,
-    // href: "/transfers",
-
-    href: "",
+    href: "/transfers",
+    // href: "",
   },
   {
     id: 5,
@@ -46,7 +50,33 @@ export const sideNavigation = [
     id: 6,
     label: "Settings",
     icon: Settings,
-    // href: "/settings",
+    href: "/settings",
+    // href: "",
+  },
+];
+
+// USER MENU ITEMS
+export interface UserMenuItemProps {
+  title: string;
+  href: string;
+  icon: LucideIcon;
+  disabled?: boolean;
+}
+
+export const userMenuItems: UserMenuItemProps[] = [
+  {
+    title: "profile",
+    icon: User,
+    href: "",
+  },
+  {
+    title: "change password",
+    icon: LockKeyhole,
+    href: "",
+  },
+  {
+    title: "2 - factor authentication",
+    icon: KeyRound,
     href: "",
   },
 ];

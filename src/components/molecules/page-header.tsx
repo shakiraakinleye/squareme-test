@@ -1,12 +1,19 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import { MoveLeft } from "lucide-react";
 import { LinkButton } from "../ui/link-button";
 
 interface Props {
-  title: string;
+  title?: string;
   href: string;
 }
 
 const PageHeaderMobile = ({ title, href }: Props) => {
+  const pathname = usePathname();
+  const currentPage = pathname.split("/").filter(Boolean).pop() || "";
+  const pageTitle = currentPage.split("-").join(" ");
+
   return (
     <div
       className="sticky top-0 inset-x-0 z-20 w-full md:hidden flex items-center gap-x-4 px-6 py-4 border-b border-border-100 bg-background-100"
@@ -16,11 +23,10 @@ const PageHeaderMobile = ({ title, href }: Props) => {
         <MoveLeft className="w-6 h-6 stroke-foreground-300" />
       </LinkButton>
       <span className="text-foreground-300 font-inter font-semibold leading-normal text-base capitalize">
-        {title}
+        {title ?? pageTitle}
       </span>
     </div>
   );
 };
 
 export default PageHeaderMobile;
-
