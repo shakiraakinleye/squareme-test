@@ -9,7 +9,7 @@ import { currencyFormatter } from "@/utils/currency-formatter";
 import { formatTime, formatDate } from "@/utils/datetime-formatter";
 
 describe("Mobile Transaction Card", () => {
-  const mockTrx = mockTransactions.transactions[0];
+  const mockTrx = mockTransactions[0];
 
   test("renders the rows - amount, type, date-time, and status", () => {
     customRender(<TransactionCardMobile trx={mockTrx} />);
@@ -65,7 +65,7 @@ describe("Desktop Transaction Card", () => {
   const mockHandler = () => jest.fn;
 
   test("renders the 7 cells - checkbox, amount, id, type, date, time, and status, and with the right values", () => {
-    const mockTrx = { ...mockTransactions.transactions[0], checked: true };
+    const mockTrx = { ...mockTransactions[0], checked: true };
     const formattedAmount = currencyFormatter(mockTrx.amount, "NGN", "symbol");
     const formattedDate = formatDate(mockTrx.date, "short");
     const formattedTime = formatTime(mockTrx.time, "12h");
@@ -105,7 +105,7 @@ describe("Desktop Transaction Card", () => {
   });
 
   test("checkbox is checked when the transaction checked = true", () => {
-    const mockTrx = { ...mockTransactions.transactions[0], checked: true };
+    const mockTrx = { ...mockTransactions[0], checked: true };
 
     customRender(
       <TransactionCardDesktop trx={mockTrx} checkHandler={mockHandler} />
@@ -118,7 +118,7 @@ describe("Desktop Transaction Card", () => {
   });
 
   test("checkbox is checked when the transaction checked = false", () => {
-    const mockTrx = { ...mockTransactions.transactions[0], checked: false };
+    const mockTrx = { ...mockTransactions[0], checked: false };
 
     customRender(
       <TransactionCardDesktop trx={mockTrx} checkHandler={mockHandler} />
