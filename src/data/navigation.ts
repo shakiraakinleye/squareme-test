@@ -5,8 +5,13 @@ import {
   RefreshCw,
   FileText,
   Settings,
-} from "lucide-react"; 
+  User,
+  LockKeyhole,
+  KeyRound,
+  LucideIcon,
+} from "lucide-react";
 
+// SIDE NAVIGATION ITEMS
 export const sideNavigation = [
   {
     id: 1,
@@ -47,5 +52,31 @@ export const sideNavigation = [
     icon: Settings,
     href: "/settings",
     // href: "",
+  },
+];
+
+// USER MENU ITEMS
+export interface UserMenuItemProps {
+  title: string;
+  href: string;
+  icon: LucideIcon;
+  disabled?: boolean;
+}
+
+export const userMenuItems: UserMenuItemProps[] = [
+  {
+    title: "profile",
+    icon: User,
+    href: "",
+  },
+  {
+    title: "change password",
+    icon: LockKeyhole,
+    href: "",
+  },
+  {
+    title: "2 - factor authentication",
+    icon: KeyRound,
+    href: "",
   },
 ];
