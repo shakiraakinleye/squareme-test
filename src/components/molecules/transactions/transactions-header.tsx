@@ -38,19 +38,19 @@ const TransactionsHeader = () => {
       role="header"
       aria-label="transactions list header"
     >
-      <div className="flex w-full md:w-fit items-center justify-between gap-x-2 ">
+      <div className="flex w-full md:w-fit items-center justify-between gap-x-2">
         <FilterSelect
           filterList={filters}
           currentFilter={trxFilter}
           setFilter={setTrxFilter}
-          triggerClassName="border-none px-0 bg-inherit w-32 md:w-36 text-foreground-600 stroke-foreground-600 flex items-center text-base leading-normal"
+          triggerClassName="border-none !px-0 justify-start bg-inherit text-foreground-600 stroke-foreground-600 flex items-center text-base leading-normal rounded-sm"
         />
         <div className="md:hidden">
           <ExportButton />
         </div>
       </div>
 
-      <div className=" w-full md:w-fit flex flex-col md:flex-row items-start md:items-center gap-2 lg:gap-3 ">
+      <div className="w-full md:w-fit flex flex-col md:flex-row items-start md:items-center gap-2 lg:gap-3 ">
         <div className="w-full flex items-center gap-x-2 lg:gap-x-3 justify-between md:justify-start">
           <p className="text-zinc-500 font-inter font-medium text-sm lg:text-base leading-none">
             Select date range:
