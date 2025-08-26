@@ -6,21 +6,47 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest --watch"
   },
   "dependencies": {
+    "@chakra-ui/charts": "^3.25.0",
+    "@chakra-ui/react": "^3.25.0",
+    "@emotion/react": "^11.14.0",
+    "@reduxjs/toolkit": "^2.8.2",
+    "@tanstack/react-query": "^5.85.5",
+    "classnames": "^2.5.1",
+    "date-fns": "^4.1.0",
+    "lucide-react": "^0.540.0",
+    "next": "14.2.32",
+    "next-themes": "^0.4.6",
     "react": "^18",
+    "react-date-range": "^2.0.1",
     "react-dom": "^18",
-    "next": "14.2.32"
+    "react-icons": "^5.5.0",
+    "react-redux": "^9.2.0",
+    "recharts": "^3.1.2"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@testing-library/jest-dom": "^6.8.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/jest": "^30.0.0",
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "^18.3.23",
+    "@types/react-date-range": "^1.4.10",
+    "@types/react-dom": "^18.3.7",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.32",
+    "jest": "^30.0.5",
+    "jest-environment-jsdom": "^30.0.5",
+    "msw": "^2.10.5",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.32"
+    "ts-jest": "^29.4.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5",
+    "util": "^0.12.5",
+    "whatwg-fetch": "^3.6.20"
   }
 }
