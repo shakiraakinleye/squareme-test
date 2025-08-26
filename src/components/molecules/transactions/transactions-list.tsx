@@ -49,6 +49,7 @@ const TransactionsListDesktop = ({
       className="hidden md:block w-full px-4 2xl:px-6 pt-6"
       role="list"
       aria-label="desktop transactions list"
+      data-testid="desktop transactions list"
     >
       <li
         className="w-full pl-2 pr-4 py-2 border-b border-border-200 grid grid-flow-row grid-cols-12 gap-x-2 items-start font-inter text-xs text-center leading-4 text-muted-400 font-semibold uppercase"

@@ -2,11 +2,11 @@
 
 import { Chart, useChart } from "@chakra-ui/charts";
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
-import { RevenueItem } from "@/types/dashboard";
+import { RevenueChartData } from "@/types/dashboard";
 import { formatK } from "@/utils/number-formatter";
 import { useMediaQuery } from "@chakra-ui/react";
 
-const RevenueChart = ({ data }: { data: RevenueItem[] }) => {
+const RevenueChart = ({ data }: { data: RevenueChartData[] }) => {
   const chart = useChart({
     data,
     series: [{ name: "value", color: "yellow.400" }],
@@ -39,8 +39,8 @@ const RevenueChart = ({ data }: { data: RevenueItem[] }) => {
         {chart.series.map((item) => (
           <Bar
             isAnimationActive={false}
-            key={item.name as keyof RevenueItem}
-            dataKey={chart.key(item.name) as keyof RevenueItem}
+            key={item.name as keyof RevenueChartData}
+            dataKey={chart.key(item.name) as keyof RevenueChartData}
             fill={chart.color(item.color)}
             stroke={chart.color(item.color)}
             barSize={20}

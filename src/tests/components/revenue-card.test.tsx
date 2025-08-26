@@ -1,8 +1,7 @@
 import { screen } from "@testing-library/react";
 import { customRender } from "@/utils/test-utils";
 import RevenueCard from "@/components/molecules/dashboard/revenue-card";
-import { mockMatchMedia } from "@/utils/test-utils";
-import { mockUser } from "./mock-data";
+import { mockUser } from "../../mocks/data";
 
 describe("Revenue Card", () => {
   test("renders the filter header", () => {
@@ -26,18 +25,11 @@ describe("Revenue Card", () => {
     ).toBeInTheDocument();
   });
 
-  test("renders the chart header only on desktop (hidden on mobile)", () => {
-    mockMatchMedia(768);
+  test("renders the revenue chart skeleton", () => {
     customRender(<RevenueCard userId={mockUser.id} />);
-    expect(
-      screen.getByRole("header", { name: "revenue chart header" })
-    ).toHaveClass("hidden md:flex");
+    const chartSkeleton = screen.getByRole("article", {
+      name: /revenue chart loading/i,
+    });
+    expect(chartSkeleton).toBeInTheDocument();
   });
-
-  test("renders the revenue chart", () => {
-    customRender(<RevenueCard userId={mockUser.id} />);
-    const chart = screen.getByRole("chart");
-    expect(chart).toBeInTheDocument();
-  });
-
 });

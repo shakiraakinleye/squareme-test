@@ -5,7 +5,7 @@ import DashboardContent, {
   DashboardTabs,
 } from "@/components/organisms/dashboard";
 import { user } from "@/utils/test-utils";
-import { mockTabs } from "./mock-data";
+import { mockTabs } from "../../mocks/data";
 
 describe("Dashboard Tabs", () => {
   test("renders tab list and tabs", async () => {

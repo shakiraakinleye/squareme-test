@@ -10,7 +10,7 @@ import {
   TransactionsListMobile,
 } from "../molecules/transactions/transactions-list";
 import TransactionsFooter from "../molecules/transactions/transactions-footer";
-import { getTransactions } from "@/api/user";
+import { getTransactions } from "@/api/transactions";
 import { useMediaQuery } from "@chakra-ui/react";
 import { TransactionsListSkeleton } from "../molecules/skeleton/transaction-card";
 import ErrorState from "../molecules/error-state";
@@ -18,9 +18,10 @@ import ErrorState from "../molecules/error-state";
 export const TransactionsTable = ({ userId }: { userId: string }) => {
   const [isDesktop] = useMediaQuery(["(min-width: 768px)"]);
   const [page, setPage] = useState(1);
+  const pageLimit = 6;
   const { data, isPending, isError, error } = useQuery({
     queryKey: ["transactions", userId, page],
-    queryFn: () => getTransactions(userId, page),
+    queryFn: () => getTransactions(userId, page, pageLimit),
     staleTime: 0,
     gcTime: 0,
   });
@@ -39,10 +40,10 @@ export const TransactionsTable = ({ userId }: { userId: string }) => {
             <div>
               <TransactionsListDesktop transactions={data.transactions} />
               <TransactionsFooter
-                page={page ?? 1}
+                page={page}
                 setPage={setPage}
-                pageLength={data.per_page ?? 0}
-                totalListLength={data.total ?? 0}
+                pageLength={pageLimit}
+                totalListLength={data.total}
               />
             </div>
           ) : (
@@ -51,7 +52,6 @@ export const TransactionsTable = ({ userId }: { userId: string }) => {
         </>
       )}
     </div>
-
   );
 };
 

@@ -10,7 +10,7 @@ const DesktopCard = () => {
 
 const DesktopListSkeleton = () => {
   return (
-    <div className="hidden md:flex w-full bg-inherit p-8 flex-col justify-center ">
+    <div className="hidden md:flex w-full bg-inherit p-8 flex-col justify-center" role="article" aria-label="desktop transaction list loading">
       <DesktopCard />
       <DesktopCard />
       <DesktopCard />
@@ -31,7 +31,8 @@ const MobileCard = () => {
 
 const MobileListSkeleton = () => {
   return (
-    <div className="w-full md:hidden bg-inherit p-8 flex flex-col gap-y-4 justify-center ">
+    <div className="w-full md:hidden bg-inherit p-8 flex flex-col gap-y-4 justify-center " role="article" aria-label="mobile transaction list loading">
+      <DesktopCard />
       <MobileCard />
       <MobileCard />
       <MobileCard />

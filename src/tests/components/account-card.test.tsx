@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import { customRender } from "@/utils/test-utils";
 import AccountCard from "@/components/molecules/dashboard/account-card";
-import { mockUser } from "./mock-data";
+import { mockUser } from "../../mocks/data";
 import { user } from "@/utils/test-utils";
 
 describe("Account Card", () => {
@@ -48,6 +48,8 @@ describe("Account Card", () => {
     customRender(<AccountCard user={mockUser} />);
     const copyButton = screen.getByRole("button", { name: /copy button/i });
     await user.click(copyButton);
-    expect(await navigator.clipboard.readText()).toBe(mockUser.accountDetails.accountNumber);
+    expect(await navigator.clipboard.readText()).toBe(
+      mockUser.accountDetails.accountNumber
+    );
   });
 });
