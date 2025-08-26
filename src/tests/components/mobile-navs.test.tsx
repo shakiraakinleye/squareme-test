@@ -1,8 +1,7 @@
 import { screen, within, waitFor } from "@testing-library/react";
 import { mockMatchMedia, customRender } from "@/utils/test-utils";
 import MobileNavBar from "@/components/organisms/mobile-navs";
-import { user } from "@/utils/test-utils"
-
+import { user } from "@/utils/test-utils";
 
 describe("Mobile Navigation Bar", () => {
   test("renders only on mobile (hidden on tablet/desktop)", () => {
@@ -15,16 +14,22 @@ describe("Mobile Navigation Bar", () => {
     ).toHaveClass("md:hidden");
   });
 
-  test("renders with nav icon, logo, and nav buttons", () => {
+  test("renders with nav icon, logo, and nav buttons - notifications and user menu", () => {
     customRender(<MobileNavBar />);
     expect(
       screen.getByRole("button", { name: /open mobile side navigation/i })
     ).toBeInTheDocument();
+
     expect(
       screen.getByRole("img", { name: /brand logo/i })
     ).toBeInTheDocument();
+
     expect(
-      screen.getByRole("list", { name: /navigation buttons/i })
+      screen.getByRole("button", { name: /notifications button/i })
+    ).toBeInTheDocument();
+   
+    expect(
+      screen.getByRole("button", { name: /open user menu/i })
     ).toBeInTheDocument();
   });
 
