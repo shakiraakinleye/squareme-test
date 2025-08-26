@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import { TransactionsTable } from "@/components/organisms/transactions-page";
 import { customRender } from "@/utils/test-utils";
-import { mockUser } from "./mock-data";
+import { mockUser } from "../mocks/data";
 import { mockMatchMedia } from "@/utils/test-utils";
 
 describe("Transactions Page", () => {

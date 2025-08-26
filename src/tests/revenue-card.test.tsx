@@ -2,7 +2,7 @@ import { screen } from "@testing-library/react";
 import { customRender } from "@/utils/test-utils";
 import RevenueCard from "@/components/molecules/dashboard/revenue-card";
 import { mockMatchMedia } from "@/utils/test-utils";
-import { mockUser } from "./mock-data";
+import { mockUser } from "../mocks/data";
 
 describe("Revenue Card", () => {
   test("renders the filter header", () => {
@@ -39,5 +39,4 @@ describe("Revenue Card", () => {
     const chart = screen.getByRole("chart");
     expect(chart).toBeInTheDocument();
   });
-
 });

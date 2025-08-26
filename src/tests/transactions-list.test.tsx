@@ -4,7 +4,7 @@ import {
   TransactionsListMobile,
 } from "@/components/molecules/transactions/transactions-list";
 import { customRender } from "@/utils/test-utils";
-import { mockTransactions } from "./mock-data";
+import { mockTransactions } from "../mocks/data";
 
 describe("Transactions List", () => {
   test("TransactionsListMobile renders only on mobile", () => {

@@ -1,6 +1,6 @@
 import { screen, within } from "@testing-library/react";
 import { customRender } from "@/utils/test-utils";
-import { mockTransactions } from "./mock-data";
+import { mockTransactions } from "../mocks/data";
 import {
   TransactionCardMobile,
   TransactionCardDesktop,
@@ -76,7 +76,7 @@ describe("Desktop Transaction Card", () => {
 
     const checkbox = screen.getByRole("cell", { name: /checkbox value/i });
     expect(checkbox).toBeInTheDocument();
-    
+
     const amount = screen.getByRole("cell", { name: /amount value/i });
     expect(amount).toBeInTheDocument();
     expect(amount).toHaveTextContent(formattedAmount);
@@ -116,7 +116,7 @@ describe("Desktop Transaction Card", () => {
     const checkInput = within(checkbox).getAllByRole("checkbox")[0];
     expect(checkInput).toBeChecked();
   });
-  
+
   test("checkbox is checked when the transaction checked = false", () => {
     const mockTrx = { ...mockTransactions.transactions[0], checked: false };
 
